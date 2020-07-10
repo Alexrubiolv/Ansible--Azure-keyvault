@@ -115,3 +115,18 @@ Invoke-WebRequest `
 curl \
 https://raw.githubusercontent.com/Azure/azure_preview_modules/master/lookup_plugins/azure_keyvault_secret.py \
 -o lookup_plugins/azure_keyvault_secret.py
+
+
+# Non-Managed Identity Lookups 
+
+When using the azurekeyvaultsecret plugin with non-managed identities you have to provide additional information for the plugin to authenticate. In addition to the vault uri and vault secret, you also have to provide a service principal client id, service principal secret, and a tenant id.
+
+# Managed Identity Lookups 
+
+# Prerequisites
+
+https://docs.microsoft.com/en-us/azure/key-vault/general/managed-identity
+https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+https://docs.microsoft.com/en-us/azure/key-vault/general/managed-identity
+
+
