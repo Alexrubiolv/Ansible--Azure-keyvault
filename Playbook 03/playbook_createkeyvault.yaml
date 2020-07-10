@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: rg-cs-ansible
+        location: eastus
+    - name: Create Ansible Key Vault
+      azure_rm_keyvault:
+        resource_group: rg-cs-ansible
+        vault_name: kv-cs-ansible
+        vault_tenant: <tenantID>
+        enabled_for_deployment: yes
+        sku:
+          name: standard
+        access_policies:
+          - tenant_id: <tenantID>
+            object_id: <servicePrincipalObjectId>
+            secrets:
+              - get
+              - list
+              - set
