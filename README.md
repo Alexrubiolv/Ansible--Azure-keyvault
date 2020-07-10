@@ -1,9 +1,9 @@
 # Ansible--Azure-keyvault
 
 # 1- Providing Credentials to Azure Modules
-#Azure PowerShell
+# Azure PowerShell
 
-2- Create an Azure Service Principal
+# 2. Create an Azure Service Principal
 
 $credentials = New-Object Microsoft.Azure.Commands.ActiveDirectory.PSADPasswordCredential `
 -Property @{ StartDate=Get-Date; EndDate=Get-Date -Year 2024; Password='<PASSWORD>'};
@@ -27,7 +27,7 @@ $roleAssignmentSplat = @{
 
 New-AzRoleAssignment @roleAssignmentSplat
 
-3- Create Azure credentials
+# 3. Create Azure credentials
 
 $subscriptionId = (Get-AzSubscription -SubscriptionName 'NameOfSubscriptionHere').id
 
@@ -40,7 +40,7 @@ $tenantId = (Get-AzSubscription -SubscriptionName 'NameOfSubscriptionHere').Tena
 
 
 
-4- Create a credentials file
+# 4. Create a credentials file
 
 mkdir ~/.azure
 vi ~/.azure/credentials
@@ -55,14 +55,14 @@ tenant=<security-principal-tenant>
 
 
 
-Option 2: Use Ansible Environment Variables
+# Option 2: Use Ansible Environment Variables
 
 export AZURE_SUBSCRIPTION_ID=<subscription_id>
 export AZURE_CLIENT_ID=<security-principal-appid>
 export AZURE_SECRET=<security-principal-password>
 export AZURE_TENANT=<security-principal-tenant>
 
-5-Create a playbook file
+# 5. Create a playbook file
 
 vi playbook.yaml
 
@@ -81,7 +81,7 @@ example:
         var: rg
 		
 
-6- Run the playbook 
+# 6. Run the playbook 
 
 ansible-playbook playbook.yaml
 
