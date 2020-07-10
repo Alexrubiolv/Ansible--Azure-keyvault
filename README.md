@@ -97,3 +97,21 @@ az ad sp show --id <ApplicationID> --query objectId
 
 # Get objectId with AzPowerShell
 (Get-AzADServicePrincipal -ApplicationId <ApplicationID> ).id
+
+
+# After run playbooks 1-4
+# Add the Lookup Plugin
+
+In order for you to add a lookup plugin to your Ansible code base, you first have to create a directory called lookup_plugins. This directory needs to be adjacent to your playbook. If you'd like to specify a different location for it, you can do that by modifying the ansible.cfg. With the lookup_plugins directory created you next need to create a file with the name of the lookup plugin which is azure_keyvault_secret.py. It is a Python script and requires the .py extension.
+
+mkdir lookup_plugins
+
+#PowerShell
+Invoke-WebRequest `
+-Uri 'https://raw.githubusercontent.com/Azure/azure_preview_modules/master/lookup_plugins/azure_keyvault_secret.py' `
+-OutFile lookup_plugins/azure_keyvault_secret.py
+
+#Curl
+curl \
+https://raw.githubusercontent.com/Azure/azure_preview_modules/master/lookup_plugins/azure_keyvault_secret.py \
+-o lookup_plugins/azure_keyvault_secret.py
