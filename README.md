@@ -85,3 +85,15 @@ example:
 
 ansible-playbook playbook.yaml
 
+Create azure keyvault
+
+# Get Azure tenantId
+az account show --subscription "MySubscriptionName" --query tenantId --output tsv
+
+# Get objectId with AzCLI
+az ad sp show --id <ApplicationID> --query objectId
+# Get Azure tenantID with AzPowerShell
+(Get-AzSubscription -SubscriptionName "MySubscriptionName").TenantId
+
+# Get objectId with AzPowerShell
+(Get-AzADServicePrincipal -ApplicationId <ApplicationID> ).id
