@@ -126,7 +126,10 @@ When using the azurekeyvaultsecret plugin with non-managed identities you have t
 # Prerequisites
 
 https://docs.microsoft.com/en-us/azure/key-vault/general/managed-identity
+
 https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+
 https://docs.microsoft.com/en-us/azure/key-vault/general/managed-identity
+
 
 
